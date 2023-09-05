@@ -2,9 +2,10 @@
     <div class="container d-flex justify-content-center">
         <div class="card w-50">
             <div class="card-header bg-body-secondary">
-            Usuários
+            Pessoas
             </div>
             <div class="card-body p-4">
+                <?php if ($data['users']): ?>
                 <table class="table">
                     <thead>
                         <tr>
@@ -21,6 +22,11 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+                <?php else : ?>
+                    <div class="text-center">
+                        Não há pessoa cadastrada.
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
