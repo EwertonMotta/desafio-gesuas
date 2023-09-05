@@ -19,7 +19,7 @@ class App
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
 
-    private function parseURL(string $url = null)
+    private function parseURL()
     {
         $REQUEST_URI =   explode('?', substr(filter_input(INPUT_SERVER, 'REQUEST_URI'), 1));
         $REQUEST_URI =   explode('/', $REQUEST_URI[0]);
@@ -44,8 +44,13 @@ class App
 
     private function getMethod($url)
     {
+        if ($this->pageNotFound) {
+            $this->method = 'pageNotFound';
+            return;
+        }
+
         if (!empty($url[1]) && isset($url[1])) {
-            if (method_exists($this->controller, $url[1]) && !$this->pageNotFound) {
+            if (method_exists($this->controller, $url[1])) {
                 $this->method = $url[1];
             } else {
                 $this->method = 'pageNotFound';
