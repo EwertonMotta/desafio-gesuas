@@ -17,6 +17,10 @@ class PeopleController extends Controller
     {
         $register = filter_input(INPUT_GET, 'r') ?? false;
 
+        if (empty($data)) {
+            redirect('');
+        }
+
         if (is_numeric($data)) {
             $userOwnerNIS = People::findByNIS($data);
             $this->view('people/show', ['user' => $userOwnerNIS, 'register' => $register]);
