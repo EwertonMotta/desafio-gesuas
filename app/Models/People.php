@@ -12,7 +12,7 @@ class People
     public static function all()
     {
         $conn = new Database();
-        $result = $conn->executeQuery('SELECT * FROM ' . self::table);
+        $result = $conn->executeQuery('SELECT * FROM ' . self::table . ' ORDER BY name asc');
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
