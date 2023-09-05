@@ -8,7 +8,7 @@
 <?php endif; ?>
 
 <div class="container">
-    <div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="d-flex justify-content-center">
         <div class="card w-50">
             <div class="card-header bg-body-secondary">
             Usuário
